@@ -3,16 +3,18 @@ import { TypeAnimation } from 'react-type-animation';
 
 export default function Hero() {
   return (
-    <section id="hero" className="pt-24 h-screen flex items-center justify-center bg-black text-white px-4">
+<section id="hero" className="min-h-screen flex flex-col justify-center items-center px-4 pt-28 text-center">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         className="text-center p-6"
       >
-        <h1 className="text-4xl md:text-6xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#8f298c] to-[#b76cff]">
+       <h1 className="font-wakanda text-5xl md:text-7xl text-white leading-tight tracking-wide px-4 py-2 overflow-visible">
           Sandeep Arlee
         </h1>
+
+
 
         <TypeAnimation
           sequence={[

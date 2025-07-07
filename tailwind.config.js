@@ -11,6 +11,10 @@ module.exports = {
           gray: "#e0e0e0",
         },
       },
+      fontFamily: {
+        sans: ['wakanda', 'sans-serif'],  
+        wakanda: ['wakanda', 'sans-serif'],
+      },
     },
   },
   plugins: [],

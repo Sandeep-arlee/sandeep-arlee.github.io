@@ -6,6 +6,7 @@ body {
   background-color: #540c3e;
   color: #e0e0e0;
   font-family: 'Poppins', sans-serif;
+  @apply font-sans;
 }
 html {
   scroll-behavior: smooth;
@@ -28,3 +29,10 @@ html {
 .pulse-effect {
   animation: custom-pulse 0.6s ease-out forwards;
 }
+
+@font-face {
+  font-family: 'wakanda';
+  src: url('./assets/fonts/Panthera.ttf') format('truetype');
+  font-display: swap;
+}
+
