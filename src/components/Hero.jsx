@@ -13,9 +13,6 @@ export default function Hero() {
        <h1 className="font-wakanda text-5xl md:text-7xl text-white leading-tight tracking-wide px-4 py-2 overflow-visible">
           Sandeep Arlee
         </h1>
-
-
-
         <TypeAnimation
           sequence={[
             'AI Engineer', 1500,

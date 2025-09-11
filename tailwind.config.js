@@ -12,6 +12,9 @@ module.exports = {
         },
       },
       fontFamily: {
+        // Make Wakanda the default sans font
+        sans: ['Wakanda', 'sans-serif'],
+        wakanda: ['Wakanda', 'sans-serif'],
         sans: ['wakanda', 'sans-serif'],  
         wakanda: ['wakanda', 'sans-serif'],
       },
