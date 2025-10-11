@@ -17,14 +17,6 @@ export default function Navbar() {
           </li>
           <li>
             <a
-              href="#about"
-              className="hover:text-[#8a2be2] transition duration-300 hover:drop-shadow-[0_0_8px_#8a2be2]"
-            >
-              About
-            </a>
-          </li>
-          <li>
-            <a
               href="#projects"
               className="hover:text-[#8a2be2] transition duration-300 hover:drop-shadow-[0_0_8px_#8a2be2]"
             >

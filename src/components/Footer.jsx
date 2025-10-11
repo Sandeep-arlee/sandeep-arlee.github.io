@@ -19,7 +19,7 @@ export default function Footer() {
           LinkedIn
         </a>
         <a
-          href="https://twitter.com/in/Sandeep-arlee"
+          href="https://twitter.com/Sandeep_arlee"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-[#8a2be2] transition duration-300 hover:drop-shadow-[0_0_8px_#8a2be2]"

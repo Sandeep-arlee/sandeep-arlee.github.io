@@ -1,16 +1,23 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function About() {
   const [pos, setPos] = useState({ x: 0, y: 0 });
+  const ticking = useRef(false);
 
-  const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setPos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
+const handleMouseMove = (e) => {
+  const rect = e.currentTarget.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  if (!ticking.current) {
+    ticking.current = true;
+    requestAnimationFrame(() => {
+      setPos({ x, y });
+      ticking.current = false;
     });
-  };
+  }
+};
 
   return (
     <section

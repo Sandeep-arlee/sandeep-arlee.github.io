@@ -17,7 +17,7 @@ function BlackPantherModel() {
   const { actions } = useAnimations(animations, group);
   const hasAnims = useMemo(() => animations?.length > 0, [animations]);
 
-  // Safety: avoid invisible parts due to alpha/culling
+  // fix transparency/culling
   useEffect(() => {
     scene.traverse((o) => {
       if (o.isMesh && o.material) {
@@ -33,7 +33,7 @@ function BlackPantherModel() {
     });
   }, [scene]);
 
-  // Play first animation if present
+  // play first animation or spin
   useEffect(() => {
     if (hasAnims && actions) {
       const first = Object.keys(actions)[0];
@@ -41,14 +41,12 @@ function BlackPantherModel() {
     }
   }, [actions, hasAnims]);
 
-  // Fallback idle spin when no animations
   useFrame((_, d) => {
     if (!hasAnims && group.current) group.current.rotation.y += 0.2 * d;
   });
 
-  // Nudge up a bit
   return (
-    <group ref={group} position={[0, -0.6, 0]} scale={2.6}>
+    <group ref={group} position={[0, -0.1, 0]} scale={2.6}>
       <Center>
         <primitive object={scene} />
       </Center>
@@ -60,20 +58,21 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="pt-24 py-24 px-4 bg-[#000] text-white flex flex-col md:flex-row items-center justify-center gap-16"
+      className="relative min-h-screen bg-black text-white flex flex-col md:flex-row items-center justify-center gap-16 px-4 py-24 overflow-x-hidden"
     >
-      {/* Left: text */}
+      {/* LEFT: Text block */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 1 }}
-        className="max-w-xl text-center md:text-left"
+        className="relative z-10 max-w-xl text-center md:text-left"
       >
-        <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-[#540c3e] to-[#8a2be2] text-transparent bg-clip-text">
-          Get In Touch
+        <h2 className="font-wakanda text-4xl leading-snugger pt-headingfix mb-6 bg-gradient-to-r from-[#540c3e] to-[#8a2be2] text-transparent bg-clip-text">
+          GET IN TOUCH
         </h2>
-        <p className="text-gray-400 mb-8">
+
+        <p className="text-gray-400 mb-8 leading-relaxed">
           Interested in working together or have a cool idea to discuss? Let’s
           connect and make it real.
         </p>
@@ -81,23 +80,23 @@ export default function Contact() {
         <a
           href="mailto:sandeeparlee@gmail.com"
           className="inline-block px-8 py-3 rounded-full font-semibold transition-transform hover:scale-105
-                     bg-gradient-to-r from-[#540c3e] to-[#8a2be2] text-white shadow-lg
-                     hover:shadow-[0_0_25px_#b76cff] ring-1 ring-[#540c3e] hover:ring-2"
+                     bg-gradient-to-r from-[#540c3e] via-[#b76cff] to-[#8a2be2] text-white shadow-lg
+                     hover:shadow-[0_0_25px_#b76cff80] ring-1 ring-[#540c3e] hover:ring-2 hover:ring-[#b76cff]
+                     focus:outline-none focus:ring-2 focus:ring-[#b76cff]/60"
         >
-          Contact Me
+          ✉ Contact Me
         </a>
       </motion.div>
 
-      {/* Right: 3D with radial grey→black background */}
-      <div className="w-full md:w-[720px] h-[560px] relative rounded-2xl overflow-hidden">
-        {/* Radial background */}
-        <div className="absolute inset-0 pointer-events-none
-                        bg-[radial-gradient(circle_at_center,rgba(140,140,140,0.28)_0%,rgba(0,0,0,1)_72%)]" />
+      {/* RIGHT: 3D Model */}
+      <div className="relative w-full md:w-[720px] h-[560px] rounded-2xl overflow-hidden">
+        {/* soft vignette inside the card only (not section-wide) */}
+        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(140,140,140,0.22)_0%,rgba(0,0,0,1)_70%)]" />
 
         <Canvas
           className="relative z-10"
           shadows
-          camera={{ position: [0, 2.2, 9], fov: 45, near: 0.01, far: 200 }}
+          camera={{ position: [0, 1.3, 7], fov: 45 }}
           gl={{ antialias: true }}
         >
           <hemisphereLight intensity={0.8} groundColor={"#222"} />
@@ -123,7 +122,7 @@ export default function Contact() {
           />
         </Canvas>
 
-        {/* Minimal attribution (bottom-right over the canvas) */}
+        {/* Attribution */}
         <div className="absolute bottom-2 right-2 z-20 text-[10px] text-gray-400 opacity-70">
           <a
             href="https://skfb.ly/pyHMF"

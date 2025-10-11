@@ -38,4 +38,11 @@
 }
 body {
   cursor: url('/cursor.cur'), auto;
+  background: #000;
+}
+/* --- Remove accidental gaps between stacked sections --- */
+section {
+  margin: 0;            /* eliminate browser default margin collapse */
+  padding-top: 0;
+  padding-bottom: 0;
 }
