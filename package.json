@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Sandeep-arlee.github.io/",
+  "homepage": "https://sandeep-arlee.github.io/",
   "dependencies": {
     "@react-three/drei": "^10.7.5",
     "@react-three/fiber": "^9.3.0",

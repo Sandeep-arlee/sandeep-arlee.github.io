@@ -9,11 +9,11 @@ const projects = [
     link: "https://grivahealth.com",
   },
   {
-    title: "Cybersecurity Toolkit",
-    iconLabel: "🛡️",
+    title: "Project Mentor Hub",
+    iconLabel: "🛍️",
     description:
-      "Network diagnostics & DDoS detection system using Flask and Python scripts, built for real-time threat analysis.",
-    link: "https://github.com/Sandeep-arlee/DDOS-attack-prediction-",
+      "Developed a platform for academic projects with secure payments, Firebase integration, and a seamless React-based user experience.",
+    link: "https://projectmentorhub.github.io",
   },
   {
     title: "React Portfolio",
